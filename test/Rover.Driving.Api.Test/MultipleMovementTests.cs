@@ -9,6 +9,7 @@ namespace Rover.Driving.Api.Test
 {
     public class MultipleMovementTests
     {
+
         [Fact]
         public void ProcessMultipleMovement_WhenFFRFFReceivedAndPosition00N_ShoudReturn22E()
         {
@@ -51,7 +52,7 @@ namespace Rover.Driving.Api.Test
             var expectedResult = new CommandProcessingResponse(
                 new RoverPosition(),
                 true,
-                "Invalid input, please check the input command"
+                "Invalid input: J!"
             );
 
             var realResult = sut.ProcessMultipleMovement("JJKK");

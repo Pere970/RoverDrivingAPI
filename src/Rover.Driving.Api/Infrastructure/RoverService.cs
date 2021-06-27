@@ -21,7 +21,8 @@ namespace Rover.Driving.Api.Infrastructure
             MinimumVerticalPosition = 0;
         }
 
-        public RoverPosition MoveForward()
+        //This method would be removed in a "real world case" as you must considere the sphere figure. Only here for tests
+        public RoverPosition MoveForward() 
         {
             switch (_rover.CurrentPosition.FacingDirection)
             {
@@ -41,6 +42,7 @@ namespace Rover.Driving.Api.Infrastructure
             return _rover.CurrentPosition;
         }
 
+        //This method would be removed in a "real world case" as you must considere the sphere figure. Only here for tests
         public RoverPosition MoveBackward()
         {
             switch (_rover.CurrentPosition.FacingDirection)
@@ -101,6 +103,7 @@ namespace Rover.Driving.Api.Infrastructure
             return _rover.CurrentPosition;
         }
 
+        //This method would be renamed to MoveBackward once the actual MoveBackward was removed
         public RoverPosition MoveBackwardWithWrapping()
         {
             switch (_rover.CurrentPosition.FacingDirection)
@@ -181,6 +184,8 @@ namespace Rover.Driving.Api.Infrastructure
             return _rover.CurrentPosition;
         }
 
+
+        //This method would be renamed to MoveForward once the actual MoveForward was removed
         public RoverPosition MoveForwardWithWrapping()
         {
             switch (_rover.CurrentPosition.FacingDirection)
@@ -261,6 +266,8 @@ namespace Rover.Driving.Api.Infrastructure
             return _rover.CurrentPosition;
         }
 
+        
+        //Could not mock this method in the testing (Check Feedback Survey for more info.)
         public bool DetectObstacle()
         {
             /*

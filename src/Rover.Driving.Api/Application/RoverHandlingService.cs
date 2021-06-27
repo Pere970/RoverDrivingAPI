@@ -48,14 +48,13 @@ namespace Rover.Driving.Api.Application
                 _roverService.GetRoverPosition().FacingDirection
             );
 
-
                 var newPosition = _roverService.GetRoverPosition();
                 if (!_roverService.DetectObstacle())
                 {
                     switch (command)
                     {
                         case 'F':
-                            if (wrapping)
+                            if (wrapping) //Only for testing.
                             {
                                 newPosition = _roverService.MoveForwardWithWrapping();
                             }
@@ -65,7 +64,7 @@ namespace Rover.Driving.Api.Application
                             }
                             break;
                         case 'B':
-                            if (wrapping)
+                            if (wrapping) //Only for testing.
                             {
                                 newPosition = _roverService.MoveBackwardWithWrapping();
                             }
@@ -80,6 +79,13 @@ namespace Rover.Driving.Api.Application
                         case 'R':
                             newPosition = _roverService.RotateRight();
                             break;
+                        default:
+                            return new CommandProcessingResponse()
+                            {
+                                CurrentRoverPosition = new RoverPosition().ToString(),
+                                DetectedError = true,
+                                ErrorMessage = $"Invalid input: {command}!"
+                            };
                     }
 
                     if (newPosition.Equals(previousPosition))
