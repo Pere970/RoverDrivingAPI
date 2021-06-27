@@ -14,25 +14,25 @@ namespace Rover.Driving.Api.Controllers
             _roverHandlingService = roverHandlingService;
         }
 
-        [HttpPost("ProcessMultipleCommand")]
+        [HttpPost("ProcessMultipleCommandWithoutWrapping")]
         public CommandProcessingResponse ProcessMultipleCommand([FromBody] string command)
         {
             return _roverHandlingService.ProcessMultipleMovement(command);
         }
 
-        [HttpPost("ProcessMultipleCommandWithWrapping")]
+        [HttpPost("ProcessMultipleCommand")]
         public CommandProcessingResponse ProcessMultipleCommandWithWrapping([FromBody] string command)
         {
             return _roverHandlingService.ProcessMultipleMovement(command,true);
         }
 
-        [HttpPost("ProcessSingleCommand")]
+        [HttpPost("ProcessSingleCommandWithoutWrapping")]
         public CommandProcessingResponse ProcessSingleCommand([FromBody] char command)
         {
             return _roverHandlingService.ProcessSingleMovement(command);
         }
 
-        [HttpPost("ProcessSingleCommandWithWrapping")]
+        [HttpPost("ProcessSingleCommand")]
         public CommandProcessingResponse ProcessSingleCommandWithWrapping([FromBody] char command)
         {
             return _roverHandlingService.ProcessSingleMovement(command, true);
